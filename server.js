@@ -19,6 +19,14 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 
+//Get Route that returns the project data
+app.get('/all', send);
+
+function send (req, res) {
+  res.send(projectData);
+};
+
+
 // Setup Server
 const port = 3000;
 const server = app.listen(port, ()=>{
@@ -26,9 +34,3 @@ const server = app.listen(port, ()=>{
 });
 
 
-//Get Route that returns the project data
-app.get('/all', send);
-
-function send (req, res) {
-  res.send(projectData);
-};
