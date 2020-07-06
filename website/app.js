@@ -5,7 +5,8 @@ let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 
-const retreiveData = async(url='')=>{
+const retreiveData = async()=>{
+    url = "/all";
     console.log(url);
     const request = await fetch(url);
     try{
@@ -15,4 +16,4 @@ const retreiveData = async(url='')=>{
     }
 }
 
-retreiveData('/all');
+retreiveData();
