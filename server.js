@@ -24,13 +24,19 @@ app.get('/all', send);
 
 function send (req, res) {
     console.log(projectData);
+    console.log(req.body);
     res.send(projectData);
 };
 
 app.post('/add', addData);
 
 function addData(req, res){
+    let data = req.body;
+	projectData["temp"] = data.temp;
+	projectData["feel"] = data.feelings;
+	projectData["date"] = data.date;
     console.log(req.body);
+    res.send({message: "POST received"});
 }
 
 
