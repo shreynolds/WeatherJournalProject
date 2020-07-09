@@ -18,8 +18,10 @@ generate.addEventListener('click', function(){
         tempF = kelvinToFarenheit(data.main.temp);
         console.log(tempF);
         userFeelings = userElement.value;
-        postData('/add', {temp:tempF, date:newDate, feelings:userFeelings}) //issue here
-    });
+        postData('/add', {temp:tempF, date:newDate, feelings:userFeelings}).then(function(){
+            retreiveData();
+        }) 
+    })
 });
 
 
@@ -48,26 +50,30 @@ const retreiveData = async()=>{
     const request = await fetch(url);
     try{
         const allData = await request.json();
+        document.getElementById('temp').innerHTML = Math.round(allData.temp)+ ' degrees';
+        document.getElementById('content').innerHTML = allData.feel;
+        document.getElementById("date").innerHTML =allData.date;
     } catch(error) {
         console.log("error", error);
     }
-}
+};
 
 
-const postData = async ( url = '', data = {})=>{
+const postData = async (url = '', data = {}) =>{
     const response = await fetch(url, {
     method: 'POST', 
     credentials: 'same-origin', 
     headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json'
     },
     body: JSON.stringify(data),   
   });
 
     try {
       const newData = await response.json();
-      return newData;
-    } catch(error) {
+    } 
+    catch(error) {
     console.log("error", error);
     }
-}
+};

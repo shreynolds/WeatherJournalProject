@@ -37,9 +37,9 @@ body{
 .feel{
     grid-area: feelings;
 }
-
+/*
 #entryHolder{
-
+    
 }
 
 #date{
@@ -53,13 +53,16 @@ body{
 #content{
 
 }
+*/
 
 .headline {
     grid-area:title;
 }
+/*
 .title{
 
 }
+*/
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label{
