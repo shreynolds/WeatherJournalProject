@@ -6,12 +6,14 @@ body{
 #app{
     display: grid;
     height:100vh;
-    background: #f23557;
+    background: #607b7d;
     color: #f0d43a;
     justify-content: center;
-    grid-gap: 1em;
     font-size: 20px;
     font-family: 'Oswald', sans-serif;
+
+    grid-template-rows: 5% 25% 40% 25%;
+    grid-template-columns: 50% 20%;
 
     grid-template-areas:
     "title title"
@@ -21,8 +23,8 @@ body{
     grid-template-rows: repeat(2, 1fr);
 }
 
-.holder{
-    outline: 3px solid red;
+.headline {
+    grid-area:title;
 }
 
 .entry{
@@ -37,32 +39,11 @@ body{
 .feel{
     grid-area: feelings;
 }
-/*
-#entryHolder{
-    
-}
 
-#date{
-
-}
-
-#temp{
-
-}
-
-#content{
-
-}
-*/
-
-.headline {
-    grid-area:title;
-}
-/*
 .title{
-
+    font-size: 2em;
 }
-*/
+
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label{
@@ -92,7 +73,7 @@ button{
     box-shadow: 2px 4px 5px #444;
 }
 button:hover{
-    background: red; /*CHANGE LATER */
+    background: blue; /*CHANGE LATER */
 }
 
 h1{
